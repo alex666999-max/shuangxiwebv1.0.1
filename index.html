@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="安徽省桐城市双溪村——省级和美乡村精品示范村，茶旅融合、龙眠山下的茶香古村">
+<title>双溪村 - 龙眠山下的茶香古村 | 安徽桐城</title>
+<style>
+/* ===== CSS Reset & Variables ===== */
+:root {
+  --tea-green: #5B8C5A;
+  --tea-green-light: #7BA37A;
+  --tea-green-dark: #3D6B3D;
+  --tea-green-bg: #E8F2E8;
+  --tea-green-pale: #F4F9F4;
+  --ink-dark: #2C2C2C;
+  --ink: #3C3C3C;
+  --ink-gray: #666666;
+  --ink-light: #999999;
+  --warm-bg: #F5F0EB;
+  --gold: #C4944A;
+  --gold-light: #D4A85C;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --max-width: 1200px;
+  --nav-height: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Utility ===== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; position: relative; }
+.section-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 6px;
+  color: var(--tea-green);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--ink-dark);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--ink-gray);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.8;
+}
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tea-green), var(--gold));
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+/* ===== Fade-up Animation ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
+  display: flex;
+  align-items: center;
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.4s;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.nav.scrolled .nav-logo { color: var(--tea-green-dark); text-shadow: none; }
+.nav-logo span { font-size: 0.8rem; letter-spacing: 2px; opacity: 0.85; display: block; line-height: 1; }
+.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.92rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.nav.scrolled .nav-links a { color: var(--ink); text-shadow: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); background: rgba(255,255,255,0.06); }
+.nav.scrolled .nav-links a:hover, .nav.scrolled .nav-links a.active { background: var(--tea-green-pale); }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  width: 26px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.nav.scrolled .nav-hamburger span { background: var(--ink-dark); }
+.nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    flex-direction: column;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(20px);
+    padding: 100px 32px 32px;
+    gap: 8px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 40px rgba(0,0,0,0.08);
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a { color: var(--ink) !important; text-shadow: none !important; font-size: 1rem; padding: 12px 16px; }
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.45) 100%);
+}
+/* 轮播图背景由 HTML 行内 style 指定 */
+	/* Image overlay instruction — user can replace slides with jpg backgrounds */
+.hero-slide .img-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255,255,255,0.3);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+  padding: 0 24px;
+}
+.hero-content .hero-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 8px;
+  padding: 8px 24px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 30px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(4px);
+  animation: fadeInDown 1s ease;
+}
+.hero-content h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin-bottom: 16px;
+  animation: fadeInUp 1s ease 0.2s both;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero-content .hero-desc {
+  font-size: 1.15rem;
+  letter-spacing: 4px;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+.hero-scroll span {
+  display: block;
+  width: 28px;
+  height: 44px;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 14px;
+  position: relative;
+}
+.hero-scroll span::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  animation: scrollDot 2s infinite;
+}
+.hero-dots {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+}
+.hero-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+.hero-dots button.active { background: var(--white); border-color: var(--white); }
+
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-12px); } }
+@keyframes scrollDot { 0% { opacity: 1; top: 8px; } 70% { opacity: 0; top: 26px; } 100% { opacity: 0; top: 8px; } }
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2.2rem; letter-spacing: 4px; }
+  .hero-content .hero-desc { font-size: 0.95rem; letter-spacing: 2px; }
+  .hero-content .hero-tag { font-size: 0.75rem; letter-spacing: 4px; }
+}
+
+/* ===== Village Overview Stats ===== */
+.overview-section { padding: 80px 0 60px; background: var(--white); }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.stat-card {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--tea-green-pale);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tea-green), var(--gold));
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+.stat-card:hover::before { transform: scaleX(1); }
+.stat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.stat-icon { font-size: 2.4rem; margin-bottom: 12px; }
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--tea-green-dark);
+  letter-spacing: 1px;
+}
+.stat-unit { font-size: 1rem; color: var(--tea-green); font-weight: 500; }
+.stat-label { font-size: 0.9rem; color: var(--ink-gray); margin-top: 8px; letter-spacing: 2px; }
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-number { font-size: 2rem; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Feature Cards ===== */
+.features-section { padding: 60px 0 100px; background: var(--white); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.feature-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  height: 360px;
+  display: flex;
+  align-items: flex-end;
+  transition: all var(--transition);
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-md);
+}
+.feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+  transition: all var(--transition);
+}
+.feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.feature-card:hover::after { background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.65) 100%); }
+.feature-card:nth-child(1) { background: linear-gradient(180deg, #5B8C5A 0%, #3D6B3D 100%); }
+.feature-card:nth-child(2) { background: linear-gradient(180deg, #6B8A7A 0%, #4A5A4A 100%); }
+.feature-card:nth-child(3) { background: linear-gradient(180deg, #7B9A6E 0%, #5B7A4A 100%); }
+.feature-card:nth-child(4) { background: linear-gradient(180deg, #8B9460 0%, #6B7A3A 100%); }
+.feature-card-content {
+  position: relative;
+  z-index: 1;
+  padding: 32px 24px;
+  color: var(--white);
+  width: 100%;
+}
+.feature-card-icon { font-size: 2.2rem; margin-bottom: 8px; display: block; }
+.feature-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+.feature-card p { font-size: 0.85rem; opacity: 0.85; letter-spacing: 1px; }
+.feature-card-arrow {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+.feature-card:hover .feature-card-arrow { transform: translateX(6px); }
+
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-card { height: 280px; }
+}
+@media (max-width: 480px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Content Sections (Alternating Backgrounds) ===== */
+.bg-light { background: var(--tea-green-pale); }
+.bg-warm { background: var(--warm-bg); }
+.bg-white { background: var(--white); }
+.bg-dark { background: var(--ink-dark); color: var(--white); }
+
+/* ===== 走进双溪 ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #E8F2E8 0%, #D4E4D0 50%, #C8D8C0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.about-image .img-hint {
+  position: absolute;
+  color: var(--tea-green);
+  opacity: 0.5;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 20px;
+}
+.about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-text h3 { font-size: 1.3rem; color: var(--tea-green-dark); margin: 20px 0 10px; letter-spacing: 2px; }
+.about-text h3:first-child { margin-top: 0; }
+.about-text p { color: var(--ink-gray); line-height: 1.9; margin-bottom: 16px; }
+.honor-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.honor-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--white);
+  border: 1px solid var(--tea-green-light);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--tea-green-dark);
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+.honor-tag:hover { background: var(--tea-green); color: var(--white); border-color: var(--tea-green); }
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ===== 茶韵双溪 ===== */
+.tea-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.tea-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.tea-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.tea-card-img {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+}
+.tea-card:nth-child(1) .tea-card-img { background: linear-gradient(135deg, #5B8C5A, #7BA37A); }
+.tea-card:nth-child(2) .tea-card-img { background: linear-gradient(135deg, #4A7A5A, #6B9A7B); }
+.tea-card:nth-child(3) .tea-card-img { background: linear-gradient(135deg, #6B8A5A, #8BAA7A); }
+.tea-card-body { padding: 24px; }
+.tea-card-body h3 { font-size: 1.15rem; color: var(--tea-green-dark); margin-bottom: 10px; letter-spacing: 2px; }
+.tea-card-body p { font-size: 0.9rem; color: var(--ink-gray); line-height: 1.8; }
+.tea-process {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 48px;
+}
+.tea-process-step {
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+  max-width: 140px;
+}
+.tea-process-step .step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--tea-green-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-size: 1.5rem;
+  border: 2px solid var(--tea-green-light);
+  transition: all 0.3s;
+}
+.tea-process-step:hover .step-icon {
+  background: var(--tea-green);
+  border-color: var(--tea-green);
+  transform: scale(1.1);
+}
+.tea-process-step .step-name { font-size: 0.85rem; color: var(--tea-green-dark); letter-spacing: 2px; font-weight: 500; }
+
+@media (max-width: 768px) {
+  .tea-showcase { grid-template-columns: 1fr; }
+}
+
+/* ===== 文脉双溪 ===== */
+.heritage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.heritage-card {
+  display: flex;
+  gap: 20px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  align-items: flex-start;
+}
+.heritage-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.heritage-card-img {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+}
+.heritage-card:nth-child(1) .heritage-card-img { background: linear-gradient(135deg, #8B7A6B, #A89880); }
+.heritage-card:nth-child(2) .heritage-card-img { background: linear-gradient(135deg, #7B8B6B, #9BAA8A); }
+.heritage-card:nth-child(3) .heritage-card-img { background: linear-gradient(135deg, #6B7B7B, #8B9A9A); }
+.heritage-card:nth-child(4) .heritage-card-img { background: linear-gradient(135deg, #7B6B5B, #9B8B7B); }
+.heritage-card-info h4 { font-size: 1.05rem; color: var(--ink-dark); margin-bottom: 6px; letter-spacing: 2px; }
+.heritage-card-info p { font-size: 0.85rem; color: var(--ink-gray); line-height: 1.7; }
+
+@media (max-width: 600px) {
+  .heritage-grid { grid-template-columns: 1fr; }
+  .heritage-card { flex-direction: column; }
+  .heritage-card-img { width: 100%; height: 160px; }
+}
+
+/* ===== 乡游双溪 ===== */
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.travel-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.travel-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.travel-card-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+}
+.travel-card:nth-child(1) .travel-card-img { background: linear-gradient(135deg, #C4944A, #D4A85C); }
+.travel-card:nth-child(2) .travel-card-img { background: linear-gradient(135deg, #8B9470, #A8B090); }
+.travel-card:nth-child(3) .travel-card-img { background: linear-gradient(135deg, #7B8B6B, #9BAA8A); }
+.travel-card-body { padding: 20px; }
+.travel-card-body h3 { font-size: 1.05rem; color: var(--ink-dark); margin-bottom: 8px; letter-spacing: 2px; }
+.travel-card-body p { font-size: 0.85rem; color: var(--ink-gray); line-height: 1.7; }
+.tips-list { list-style: none; margin-top: 40px; padding: 28px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tips-list li { display: flex; gap: 12px; align-items: flex-start; }
+.tips-list li .tip-icon { font-size: 1.5rem; flex-shrink: 0; }
+.tips-list li strong { display: block; font-size: 0.9rem; color: var(--tea-green-dark); letter-spacing: 1px; }
+.tips-list li span { font-size: 0.85rem; color: var(--ink-gray); }
+
+@media (max-width: 768px) {
+  .travel-grid { grid-template-columns: 1fr; }
+  .tips-list { grid-template-columns: 1fr; }
+}
+
+/* ===== 振兴双溪 ===== */
+.revitalize-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.revitalize-stat {
+  text-align: center;
+  padding: 32px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.revitalize-stat .big-number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--tea-green), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.revitalize-stat .label { font-size: 0.9rem; color: var(--ink-gray); letter-spacing: 2px; margin-top: 4px; }
+.revitalize-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+.eco-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+.eco-image-placeholder {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+}
+.eco-image-placeholder:nth-child(1) { background: linear-gradient(135deg, #A8C8A0, #C8D8C0); }
+.eco-image-placeholder:nth-child(2) { background: linear-gradient(135deg, #B8C8B0, #D8E0D0); }
+.eco-image-placeholder:nth-child(3) { background: linear-gradient(135deg, #C8D8C0, #E0E8D8); }
+.eco-image-placeholder:nth-child(4) { background: linear-gradient(135deg, #A8B8A0, #C0D0B8); }
+
+@media (max-width: 768px) {
+  .revitalize-grid { grid-template-columns: 1fr; }
+  .revitalize-stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== 乡风文明 ===== */
+.culture-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+  transition: all var(--transition);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.gallery-item:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+.gallery-item:nth-child(1) { background: linear-gradient(135deg, #9BB89B, #B8CCB8); }
+.gallery-item:nth-child(2) { background: linear-gradient(135deg, #A8B898, #C0D0B0); }
+.gallery-item:nth-child(3) { background: linear-gradient(135deg, #B8C8A8, #D0D8C0); }
+.gallery-item:nth-child(4) { background: linear-gradient(135deg, #A0B8A0, #B8CCB8); }
+.culture-activities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.activity-card {
+  text-align: center;
+  padding: 32px 20px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.activity-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.activity-card .activity-icon { font-size: 2.8rem; margin-bottom: 12px; }
+.activity-card h4 { font-size: 1.05rem; color: var(--tea-green-dark); letter-spacing: 2px; margin-bottom: 6px; }
+.activity-card p { font-size: 0.85rem; color: var(--ink-gray); }
+
+@media (max-width: 768px) {
+  .culture-gallery { grid-template-columns: repeat(2, 1fr); }
+  .culture-activities { grid-template-columns: 1fr; }
+}
+
+/* ===== 便民服务 ===== */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.service-card {
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.service-card .service-icon { font-size: 2rem; margin-bottom: 10px; }
+.service-card h4 { font-size: 0.95rem; color: var(--tea-green-dark); letter-spacing: 2px; margin-bottom: 6px; }
+.service-card .service-phone { font-size: 1.3rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; }
+.service-card p { font-size: 0.8rem; color: var(--ink-gray); }
+
+@media (max-width: 768px) {
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .service-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--ink-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.footer-col p, .footer-col a {
+  font-size: 0.85rem;
+  line-height: 2;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--tea-green);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s;
+  z-index: 99;
+  pointer-events: none;
+}
+.back-to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.back-to-top:hover { background: var(--tea-green-dark); transform: translateY(-4px); }
+
+/* ===== Mobile Nav Overlay ===== */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.nav-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* ===== Float Tea Leaf Animation ===== */
+.float-leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.12;
+  animation: floatLeaf 8s ease-in-out infinite;
+}
+.float-leaf:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; font-size: 2.5rem; }
+.float-leaf:nth-child(2) { top: 60%; right: 6%; animation-delay: 2s; font-size: 2rem; }
+.float-leaf:nth-child(3) { top: 30%; right: 15%; animation-delay: 4s; font-size: 1.8rem; }
+.float-leaf:nth-child(4) { top: 70%; left: 12%; animation-delay: 6s; font-size: 3rem; }
+@keyframes floatLeaf {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-16px) rotate(5deg); }
+  50% { transform: translateY(-8px) rotate(-3deg); }
+  75% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* ===== 三下乡图片画廊 ===== */
+	.sanxiaxiang-gallery {
+	  display: grid;
+	  grid-template-columns: repeat(5, 1fr);
+	  gap: 16px;
+	}
+	.sanxiaxiang-item {
+	  aspect-ratio: 4/3;
+	  border-radius: var(--radius);
+	  overflow: hidden;
+	  box-shadow: var(--shadow-sm);
+	  transition: all var(--transition);
+	  cursor: pointer;
+	  background: var(--tea-green-pale);
+	}
+	.sanxiaxiang-item:hover {
+	  transform: translateY(-6px);
+	  box-shadow: var(--shadow-lg);
+	}
+	.sanxiaxiang-item img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  display: block;
+	  transition: transform 0.5s ease;
+	}
+	.sanxiaxiang-item:hover img {
+	  transform: scale(1.08);
+	}
+	@media (max-width: 900px) {
+	  .sanxiaxiang-gallery { grid-template-columns: repeat(3, 1fr); }
+	}
+	@media (max-width: 480px) {
+	  .sanxiaxiang-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+	}
+
+/* ===== Image Replace Helper ===== */
+.img-replace-hint {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 导航栏 Navigation ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">双溪村<span>SHUANGXI VILLAGE</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">首页</a></li>
+      <li><a href="#about">走进双溪</a></li>
+      <li><a href="#tea">茶韵双溪</a></li>
+      <li><a href="#culture">文脉双溪</a></li>
+      <li><a href="#travel">乡游双溪</a></li>
+      <li><a href="#revitalize">振兴双溪</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== 首页首屏 Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-slides" id="heroSlides">
+    <!-- ★ 替换图片：修改下方 url('images/heroX.jpg') 中的文件名 -->
+    <div class="hero-slide active" style="background-image: url('images/hero1.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/hero2.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/hero3.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/hero4.jpg');"></div>
+  </div>
+  <!-- 浮动装饰叶 -->
+  <div class="float-leaf">🍃</div>
+  <div class="float-leaf">🍂</div>
+  <div class="float-leaf">🌿</div>
+  <div class="float-leaf">🍃</div>
+
+  <div class="hero-content">
+    <div class="hero-tag">安 徽 · 桐 城</div>
+    <h1>双 溪 村</h1>
+    <p class="hero-desc">龙眠山下的茶香古村 · 省级和美乡村精品示范村</p>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <button class="active" data-index="0" aria-label="第1张"></button>
+    <button data-index="1" aria-label="第2张"></button>
+    <button data-index="2" aria-label="第3张"></button>
+    <button data-index="3" aria-label="第4张"></button>
+  </div>
+  <div class="hero-scroll"><span></span></div>
+</section>
+
+<!-- ===== 村庄速览 Stats ===== -->
+<section class="overview-section">
+  <div class="stats-grid">
+    <div class="stat-card fade-up">
+      <div class="stat-icon">📍</div>
+      <div class="stat-number"><span class="count-up" data-target="13.6">0</span><span class="stat-unit"> km²</span></div>
+      <div class="stat-label">村域面积</div>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-icon">👥</div>
+      <div class="stat-number"><span class="count-up" data-target="2800">0</span><span class="stat-unit"> 人</span></div>
+      <div class="stat-label">常住人口</div>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-icon">🌱</div>
+      <div class="stat-number"><span class="count-up" data-target="3200">0</span><span class="stat-unit"> 亩</span></div>
+      <div class="stat-label">茶园面积</div>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-icon">🏆</div>
+      <div class="stat-number"><span class="count-up" data-target="12">0</span><span class="stat-unit"> 项</span></div>
+      <div class="stat-label">省级以上荣誉</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 四大特色入口 ===== -->
+<section class="features-section">
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-card-content">
+        <span class="feature-card-icon">🍵</span>
+        <h3>品 茶</h3>
+        <p>桐城小花·兰花香韵</p>
+        <span class="feature-card-arrow">→</span>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-card-content">
+        <span class="feature-card-icon">🏛</span>
+        <h3>访 古</h3>
+        <p>文和园·摩崖石刻</p>
+        <span class="feature-card-arrow">→</span>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-card-content">
+        <span class="feature-card-icon">📚</span>
+        <h3>研 学</h3>
+        <p>茶文化·桐城派文化</p>
+        <span class="feature-card-arrow">→</span>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-card-content">
+        <span class="feature-card-icon">🏕</span>
+        <h3>宿 营</h3>
+        <p>茶园民宿·溪畔营地</p>
+        <span class="feature-card-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 走进双溪 ===== -->
+<section class="section bg-light" id="about">
+  <div class="container">
+    <span class="section-label fade-up">走进双溪</span>
+    <h2 class="section-title fade-up">龙眠山下的茶香古村</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="section-subtitle fade-up">双溪村位于安徽省桐城市龙眠山腹地，因两条溪流在此交汇而得名。这里山清水秀、茶园连绵，是桐城派文化的重要发源地之一。</p>
+
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <img src="images\aboutvillage.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="about-text fade-up">
+        <h3>📍 地理位置</h3>
+        <p>双溪村位于桐城市区西北约12公里，地处龙眠山腹地，交通便利。自驾从桐城市区出发，沿龙眠山旅游公路约20分钟即可抵达，是龙眠山风景区的核心村落。</p>
+
+        <h3>🏞 自然风貌</h3>
+        <p>村庄四面环山，龙眠山主峰巍峨耸立，两条清澈溪流穿村而过。森林覆盖率达78%以上，空气负氧离子含量高，是天然的生态氧吧。茶园依山而建，云雾缭绕间孕育了独特的茶叶品质。</p>
+
+        <h3>🏅 荣誉称号</h3>
+        <div class="honor-tags">
+          <span class="honor-tag">省级和美乡村精品示范村</span>
+          <span class="honor-tag">茶旅融合示范村</span>
+          <span class="honor-tag">有机茶种植基地</span>
+          <span class="honor-tag">桐城派文化研学基地</span>
+          <span class="honor-tag">省级生态村</span>
+        </div>
+
+        <h3>📜 历史底蕴</h3>
+        <p>双溪村因两条溪流交汇而得名，村史可追溯至宋代。清代名臣张英、张廷玉父子与双溪渊源深厚，文和园（张廷玉墓园）坐落于此。北宋画家李公麟曾在此隐居，"龙眠山庄"遗址至今可寻。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 茶韵双溪 ===== -->
+<section class="section bg-white" id="tea">
+  <div class="container">
+    <span class="section-label fade-up">茶韵双溪</span>
+    <h2 class="section-title fade-up">桐城小花 · 一叶知春</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="section-subtitle fade-up">双溪村是桐城小花茶的核心产区，龙眠山云雾滋养的茶树，孕育出兰花香气独特的明前佳茗。</p>
+
+    <div class="tea-showcase">
+      <div class="tea-card fade-up">
+        <div class="tea-card-img"><img src="images\4.1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="tea-card-body">
+          <h3>兰花香气 · 明前佳茗</h3>
+          <p>桐城小花茶历史悠久，明清时期即为贡茶。茶叶外形芽叶相连，色泽翠绿，冲泡后兰花香幽雅，滋味鲜醇回甘。明前采摘的嫩芽品质最佳，素有"一叶知春"之美誉。</p>
+        </div>
+      </div>
+      <div class="tea-card fade-up">
+        <div class="tea-card-img"><img src="images\4.2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="tea-card-body">
+          <h3>云雾茶园 · 四季风光</h3>
+          <p>双溪村拥有3200余亩茶园，核心茶园分布在龙眠山海拔300-600米的向阳坡地。春采嫩芽、夏荫茶香、秋韵红叶、冬雪覆园，四季各有景致。老茶树资源丰富，采用生态种植模式。</p>
+        </div>
+      </div>
+      <div class="tea-card fade-up">
+        <div class="tea-card-img"><img src="images\4.3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="tea-card-body">
+          <h3>茶文化馆 · 研学体验</h3>
+          <p>桐城小花茶文化馆展示制茶历史与工艺传承，游客可参与采茶、制茶、品茶全过程体验。历年茶文化节吸引众多爱茶人士前来交流，是茶文化研学旅行的理想目的地。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tea-process fade-up">
+      <div class="tea-process-step">
+        <div class="step-icon">🌿</div>
+        <span class="step-name">采 青</span>
+      </div>
+      <div class="tea-process-step">
+        <div class="step-icon">🍂</div>
+        <span class="step-name">摊 晾</span>
+      </div>
+      <div class="tea-process-step">
+        <div class="step-icon">🔥</div>
+        <span class="step-name">杀 青</span>
+      </div>
+      <div class="tea-process-step">
+        <div class="step-icon">🤲</div>
+        <span class="step-name">揉 捻</span>
+      </div>
+      <div class="tea-process-step">
+        <div class="step-icon">☀️</div>
+        <span class="step-name">烘 干</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 文脉双溪 ===== -->
+<section class="section bg-warm" id="culture">
+  <div class="container">
+    <span class="section-label fade-up">文脉双溪</span>
+    <h2 class="section-title fade-up">千年文脉 · 历史遗珍</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="section-subtitle fade-up">双溪村承载着桐城派文化的历史记忆，文保古迹林立，文脉绵延不绝。</p>
+
+    <div class="heritage-grid">
+      <div class="heritage-card fade-up">
+        <div class="heritage-card-img"><img src="images\5.1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="heritage-card-info">
+          <h4>🏛 文和园（张廷玉墓园）</h4>
+          <p>全国重点文物保护单位，清代名臣张廷玉长眠之地。园内建筑庄严肃穆，石雕精美，古木参天，是清代陵园建筑的典范之作。</p>
+        </div>
+      </div>
+      <div class="heritage-card fade-up">
+        <div class="heritage-card-img"><img src="images\5.2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="heritage-card-info">
+          <h4>📜 张英墓 · 六尺巷精神</h4>
+          <p>清代大学士张英安葬于此，"千里修书只为墙，让他三尺又何妨"的六尺巷精神，至今传颂。其谦和礼让的家风文化深深融入双溪村的乡风文明。</p>
+        </div>
+      </div>
+      <div class="heritage-card fade-up">
+        <div class="heritage-card-img"><img src="images\5.3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="heritage-card-info">
+          <h4>🗿 椒子崖摩崖石刻</h4>
+          <p>龙眠山椒子崖上留存多处历代摩崖石刻，内容涵盖诗文题记与纪年铭文，历史年代跨度自宋至清，是研究桐城历史文化的重要实物资料。</p>
+        </div>
+      </div>
+      <div class="heritage-card fade-up">
+        <div class="heritage-card-img"><img src="images\5.4.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="heritage-card-info">
+          <h4>🎨 李公麟龙眠山庄遗址</h4>
+          <p>北宋著名画家李公麟晚年隐居龙眠山，在此建"龙眠山庄"，创作了大量传世名作。遗址位于双溪村附近，至今仍可寻觅昔日文人雅士的足迹。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;" class="fade-up">
+      <h3 style="color: var(--tea-green-dark); letter-spacing: 3px; margin-bottom: 16px;">📖 桐城派与双溪</h3>
+      <p style="color: var(--ink-gray); line-height: 1.9; max-width: 800px;">
+        桐城派是清代最大的散文流派，其代表人物姚鼐、刘大櫆等常游历龙眠山，留下众多山水游记名篇。双溪村作为龙眠山腹地的古村落，承载了桐城派文人寄情山水的人文精神。今日的双溪村，延续着"耕读传家"的传统，乡村诗会、经典诵读等文化活动在此蓬勃开展。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 乡游双溪 ===== -->
+<section class="section bg-light" id="travel">
+  <div class="container">
+    <span class="section-label fade-up">乡游双溪</span>
+    <h2 class="section-title fade-up">美食美宿 · 游玩指南</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="section-subtitle fade-up">品农家茶宴、宿茶园民宿，体验最地道的双溪田园生活。</p>
+
+    <div class="travel-grid">
+      <div class="travel-card fade-up">
+        <div class="travel-card-img"><img src="images\6.1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="travel-card-body">
+          <h3>🥢 茶家乐 · 农家菜</h3>
+          <p>推荐菜品：茶油炒鸡、山野菜、桐城水碗、龙眠山笋干。以茶入菜，风味独特。多家茶家乐提供地道的农家餐饮，食材取自本地山野，新鲜健康。</p>
+        </div>
+      </div>
+      <div class="travel-card fade-up">
+        <div class="travel-card-img"><img src="images\6.2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="travel-card-body">
+          <h3>🏡 茶园民宿 · 溪畔营地</h3>
+          <p>茶园环绕的特色民宿，推窗即景，茶香伴眠。溪畔露营地提供帐篷与烧烤设施，适合家庭亲子、朋友聚会。请提前预订以确保房源。</p>
+        </div>
+      </div>
+      <div class="travel-card fade-up">
+        <div class="travel-card-img"><img src="images\6.3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="travel-card-body">
+          <h3>🎁 伴手礼推荐</h3>
+          <p>桐城小花茶（明前/雨前）、茶点酥饼、龙眠山蜂蜜、手工竹编工艺品。将双溪的茶香与乡土味道带回家，与亲友分享。</p>
+        </div>
+      </div>
+    </div>
+
+    <ul class="tips-list fade-up">
+      <li>
+        <span class="tip-icon">🌸</span>
+        <div><strong>最佳季节</strong><span>春季（3-5月）采茶体验最佳；秋季（9-11月）天高气爽宜登高</span></div>
+      </li>
+      <li>
+        <span class="tip-icon">🚗</span>
+        <div><strong>交通指引</strong><span>自驾导航"桐城市双溪村"；公交可乘桐城至龙眠山班车</span></div>
+      </li>
+      <li>
+        <span class="tip-icon">🎫</span>
+        <div><strong>门票信息</strong><span>村庄免费游览；文和园等文保单位按国家规定收费</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 振兴双溪 ===== -->
+<section class="section bg-white" id="revitalize">
+  <div class="container">
+    <span class="section-label fade-up">振兴双溪</span>
+    <h2 class="section-title fade-up">产业振兴 · 生态宜居</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="section-subtitle fade-up">双溪村坚持茶旅融合发展路径，科技兴农，建设宜居宜业的和美乡村。</p>
+
+    <div class="revitalize-grid">
+      <div class="fade-up">
+        <div class="revitalize-stats-row">
+          <div class="revitalize-stat">
+            <div class="big-number"><span class="count-up" data-target="5800">0</span> 万元</div>
+            <div class="label">茶产业年产值</div>
+          </div>
+          <div class="revitalize-stat">
+            <div class="big-number"><span class="count-up" data-target="1.8">0</span> 万元</div>
+            <div class="label">户均年增收</div>
+          </div>
+          <div class="revitalize-stat">
+            <div class="big-number"><span class="count-up" data-target="5">0</span> 万人次</div>
+            <div class="label">年接待游客</div>
+          </div>
+        </div>
+        <div style="margin-top: 24px; color: var(--ink-gray); line-height: 1.9;">
+          <p>双溪村与安徽省农科院建立合作关系，引进优良茶树品种与有机种植技术，推动茶产业科技升级。同时，通过"农文旅"融合发展模式，将茶园观光、茶文化体验、乡村民宿有机结合，走出了一条特色振兴之路。</p>
+        </div>
+      </div>
+      <div class="fade-up">
+        <h3 style="color: var(--tea-green-dark); letter-spacing: 2px; margin-bottom: 16px;">🏗 基础设施建设</h3>
+        <p style="color: var(--ink-gray); line-height: 1.9; margin-bottom: 16px;">近年来，双溪村全面完成道路硬化、安全饮水、污水处理、人居环境整治等基础设施工程。实施河长制保护龙眠山溪流生态，推进垃圾分类与绿化美化。</p>
+        <div class="eco-images">
+          <div class="eco-image-placeholder"><img src="images\7.1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="eco-image-placeholder"><img src="images\7.2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="eco-image-placeholder"><img src="images\7.3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="eco-image-placeholder"><img src="images\7.4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 乡风文明 ===== -->
+<section class="section bg-warm" id="culture-life">
+  <div class="container">
+    <span class="section-label fade-up">乡风文明</span>
+    <h2 class="section-title fade-up">淳朴乡风 · 精彩生活</h2>
+    <div class="section-divider fade-up"></div>
+
+    <div class="culture-gallery">
+      <div class="gallery-item fade-up"><img src="images\8.1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gallery-item fade-up"><img src="images\8.2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gallery-item fade-up"><img src="images\8.3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gallery-item fade-up"><img src="images\8.4.png" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+    </div>
+
+    <div class="culture-activities">
+      <div class="activity-card fade-up">
+        <div class="activity-icon">🏃</div>
+        <h4>农民运动会</h4>
+        <p>每年秋季举办，设置拔河、挑粮、采茶等趣味比赛项目，展现新时代农民风采。</p>
+      </div>
+      <div class="activity-card fade-up">
+        <div class="activity-icon">💃</div>
+        <h4>广场舞大赛</h4>
+        <p>村民自发组织，在村文化广场定期开展，丰富业余文化生活，增进邻里情谊。</p>
+      </div>
+      <div class="activity-card fade-up">
+        <div class="activity-icon">📖</div>
+        <h4>乡村诗会</h4>
+        <p>延续桐城派文脉，村民与文人雅士齐聚一堂，吟诗诵词，传承耕读文化。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 便民服务 ===== -->
+<section class="section bg-light" id="services">
+  <div class="container">
+    <span class="section-label fade-up">便民服务</span>
+    <h2 class="section-title fade-up">服务信息</h2>
+    <div class="section-divider fade-up"></div>
+
+    <div class="service-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🏛</div>
+        <h4>村部服务</h4>
+        <div class="service-phone"></div>
+        <p>工作日 8:30-17:00</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🏥</div>
+        <h4>卫生室</h4>
+        <div class="service-phone"></div>
+        <p>24小时值班</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🏡</div>
+        <h4>民宿预订</h4>
+        <div class="service-phone"></div>
+        <p>请提前3天预订</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">ℹ️</div>
+        <h4>游客服务中心</h4>
+        <div class="service-phone"></div>
+        <p>提供导览与咨询服务</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 青春双溪 · 三下乡实践 ===== -->
+<section class="section bg-white" id="sanxiaxiang">
+  <div class="container">
+    <span class="section-label fade-up">青春双溪</span>
+    <h2 class="section-title fade-up">合肥工业大学 · 三下乡实践</h2>
+    <div class="section-divider fade-up"></div>
+    <p class="section-subtitle fade-up">合肥工业大学暑期"三下乡"社会实践团队走进双溪村，用青春脚步丈量茶乡土地，以专业知识助力乡村振兴。</p>
+
+    <!-- ★ 替换图片：将下方 src 中的文件名改为你的实际图片 -->
+    <div class="sanxiaxiang-gallery">
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.1.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.2.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.3.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.4.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.5.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.6.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.7.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.8.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.9.jpg" alt="合工大三下乡实践">
+      </div>
+      <div class="sanxiaxiang-item fade-up">
+        <img src="images\9.10.jpg" alt="合工大三下乡实践">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 联系我们 Footer ===== -->
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>双 溪 村</h4>
+      <p>安徽省桐城市龙眠山腹地<br>龙眠山下的茶香古村<br>省级和美乡村精品示范村</p>
+    </div>
+    <div class="footer-col">
+      <h4>联系方式</h4>
+      <p>📞  0556-6190381</p>
+      
+      <p>📍 安徽·桐城·双溪村</p>
+    </div>
+    <div class="footer-col">
+      <h4>快速导航</h4>
+      <a href="#about">走进双溪</a>
+      <a href="#tea">茶韵双溪</a>
+      <a href="#culture">文脉双溪</a>
+      <a href="#travel">乡游双溪</a>
+      <a href="#revitalize">振兴双溪</a>
+    </div>
+    <div class="footer-col">
+      <h4>关注我们</h4>
+      <!-- 将下方 href="#" 替换为对应账号主页链接即可 -->
+      <a href="https://space.bilibili.com/1705116696?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noopener">📺 B站：合工大赴桐城三下乡</a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAdqgAGeDOEgsuU6Q9WI9dz6j-0KKQsjp-JtgU4Bi1KRakRPWm5ouyW_Cm_FMCTCUc?from_tab_name=main" target="_blank" rel="noopener">🎵 抖音：合工大微电子安庆桐城三下乡</a>
+      <a href="https://www.xiaohongshu.com/user/profile/611b5ac6000000000100201c?xsec_token=ABSYCHBHOvCMHuZNKuJz1MM5fij3ua9XngryVN-oDqO5Y=&xsec_source=pc_search" target="_blank" rel="noopener">📕 小红书：合肥工业大学智赋乡野智慧乡村实践团</a>
+
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 安徽省桐城市双溪村 | 龙眠山下的茶香古村</p>
+  </div>
+</footer>
+
+<!-- ===== 返回顶部 ===== -->
+<button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+
+<script>
+/* ===== JavaScript ===== */
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ===== Nav Scroll Effect =====
+  const nav = document.getElementById('nav');
+  const backToTop = document.getElementById('backToTop');
+
+  function updateNavScroll() {
+    const scrolled = window.scrollY > 60;
+    nav.classList.toggle('scrolled', scrolled);
+    backToTop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', updateNavScroll, { passive: true });
+
+  // ===== Mobile Nav =====
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function closeNav() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('open');
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.contains('open');
+    if (isOpen) {
+      closeNav();
+    } else {
+      hamburger.classList.add('open');
+      navLinks.classList.add('open');
+      navOverlay.classList.add('open');
+    }
+  });
+
+  navOverlay.addEventListener('click', closeNav);
+
+  // Close nav when clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
+
+  // ===== Active Nav Link on Scroll =====
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 120;
+      if (window.scrollY >= top) {
+        current = section.getAttribute('id');
+      }
+    });
+    navAnchors.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+  // ===== Hero Slider =====
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('#heroDots button');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  let slideInterval;
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      goToSlide(parseInt(dot.dataset.index));
+      resetSlideInterval();
+    });
+  });
+
+  function resetSlideInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 5000);
+  }
+  slideInterval = setInterval(nextSlide, 5000);
+
+  // Touch swipe support for hero
+  let touchStartX = 0;
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goToSlide((currentSlide + 1) % totalSlides);
+      else goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+      resetSlideInterval();
+    }
+  });
+
+  // ===== Intersection Observer - Fade Up Animation =====
+  const fadeUps = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  fadeUps.forEach(el => observer.observe(el));
+
+  // ===== Count Up Animation =====
+  const countUps = document.querySelectorAll('.count-up');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const isFloat = el.dataset.target.includes('.');
+        const decimals = isFloat ? el.dataset.target.split('.')[1].length : 0;
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function updateCount(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
+          el.textContent = isFloat ? current.toFixed(decimals) : Math.floor(current);
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            el.textContent = isFloat ? target.toFixed(decimals) : Math.floor(target);
+          }
+        }
+        requestAnimationFrame(updateCount);
+        countObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  countUps.forEach(el => countObserver.observe(el));
+
+  // ===== Back to Top =====
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ===== Smooth scroll for feature cards =====
+  document.querySelectorAll('.feature-card').forEach((card, i) => {
+    card.addEventListener('click', () => {
+      const targets = ['#tea', '#culture', '#culture', '#travel'];
+      const target = document.querySelector(targets[i]);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+});
+</script>
+
+</body>
+</html>
